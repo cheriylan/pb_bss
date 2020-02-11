@@ -222,6 +222,8 @@ class InputMetrics:
         return {name: self[name] for name in self._available_metric_names()}
 
     def __getitem__(self, item):
+        if isinstance(item, list):
+            return {name: self[name] for name in item}
         assert isinstance(item, str), (type(item), item)
         try:
             return getattr(self, item)
@@ -531,6 +533,8 @@ class OutputMetrics:
         return {name: self[name] for name in self._available_metric_names()}
 
     def __getitem__(self, item):
+        if isinstance(item, list):
+            return {name: self[name] for name in item}
         assert isinstance(item, str), (type(item), item)
         try:
             return getattr(self, item)
