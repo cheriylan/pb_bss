@@ -1,4 +1,5 @@
 import numpy as np
+EPS=1e-8
 
 
 def si_sdr(reference, estimation):
@@ -29,18 +30,13 @@ def si_sdr(reference, estimation):
     6.3704606032577304
     >>> si_sdr(reference, reference * 2 + 1)
     6.3704606032577304
-    >>> si_sdr([1., 0], [0., 0])  # never predict only zeros
-    nan
     >>> si_sdr([reference, reference], [reference * 2 + 1, reference * 1 + 0.5])
     array([6.3704606, 6.3704606])
 
     """
     estimation, reference = np.broadcast_arrays(estimation, reference)
 
-    assert reference.dtype == np.float64, reference.dtype
-    assert estimation.dtype == np.float64, estimation.dtype
-
-    reference_energy = np.sum(reference ** 2, axis=-1, keepdims=True)
+    reference_energy = np.sum(reference ** 2, axis=-1, keepdims=True) + EPS
 
     # This is $\alpha$ after Equation (3) in [1].
     optimal_scaling = np.sum(reference * estimation, axis=-1, keepdims=True) \
@@ -52,5 +48,6 @@ def si_sdr(reference, estimation):
     # This is $e_{\text{res}}$ in Equation (4) in [1].
     noise = estimation - projection
 
-    ratio = np.sum(projection ** 2, axis=-1) / np.sum(noise ** 2, axis=-1)
-    return 10 * np.log10(ratio)
+    ratio = np.sum(projection ** 2, axis=-1) / (np.sum(noise ** 2, axis=-1) +
+                                                EPS)
+    return 10 * np.log10(ratio + EPS)
