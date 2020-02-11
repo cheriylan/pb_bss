@@ -221,6 +221,16 @@ class InputMetrics:
     def as_dict(self):
         return {name: self[name] for name in self._available_metric_names()}
 
+    # Aliases
+    def sdr(self):
+        return self.mir_eval_sdr()
+
+    def sir(self):
+        return self.mir_eval_sir()
+
+    def sar(self):
+        return self.mir_eval_sar()
+
     def __getitem__(self, item):
         if isinstance(item, list):
             return {name: self[name] for name in item}
@@ -531,6 +541,16 @@ class OutputMetrics:
 
     def as_dict(self):
         return {name: self[name] for name in self._available_metric_names()}
+
+    # Aliases
+    def sdr(self):
+        return self.mir_eval_sdr()
+
+    def sir(self):
+        return self.mir_eval_sir()
+
+    def sar(self):
+        return self.mir_eval_sar()
 
     def __getitem__(self, item):
         if isinstance(item, list):
