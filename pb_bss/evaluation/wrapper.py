@@ -222,14 +222,17 @@ class InputMetrics:
         return {name: self[name] for name in self._available_metric_names()}
 
     # Aliases
+    @property
     def sdr(self):
-        return self.mir_eval_sdr()
+        return self.mir_eval_sdr
 
+    @property
     def sir(self):
-        return self.mir_eval_sir()
+        return self.mir_eval_sir
 
+    @property
     def sar(self):
-        return self.mir_eval_sar()
+        return self.mir_eval_sar
 
     def __getitem__(self, item):
         if isinstance(item, list):
@@ -543,14 +546,17 @@ class OutputMetrics:
         return {name: self[name] for name in self._available_metric_names()}
 
     # Aliases
+    @property
     def sdr(self):
-        return self.mir_eval_sdr()
+        return self.mir_eval_sdr
 
+    @property
     def sir(self):
-        return self.mir_eval_sir()
+        return self.mir_eval_sir
 
+    @property
     def sar(self):
-        return self.mir_eval_sar()
+        return self.mir_eval_sar
 
     def __getitem__(self, item):
         if isinstance(item, list):
