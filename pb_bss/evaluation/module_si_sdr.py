@@ -1,5 +1,5 @@
 import numpy as np
-EPS=1e-8
+EPS = 1e-8
 
 
 def si_sdr(reference, estimation):
@@ -50,4 +50,4 @@ def si_sdr(reference, estimation):
 
     ratio = np.sum(projection ** 2, axis=-1) / (np.sum(noise ** 2, axis=-1) +
                                                 EPS)
-    return 10 * np.log10(ratio + EPS)
+    return np.array(10 * np.log10(ratio + EPS), dtype=np.float64)
