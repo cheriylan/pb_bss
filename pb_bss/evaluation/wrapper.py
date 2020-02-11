@@ -243,6 +243,7 @@ class OutputMetrics:
             noise_contribution: 'Shape(K_target, N)'=None,
             sample_rate: int = None,
             enable_si_sdr: bool = False,
+            compute_permutation: bool = True,
     ):
         """
 
@@ -262,6 +263,8 @@ class OutputMetrics:
                     8000: wide band (wb)
             enable_si_sdr: Since SI-SDR is only well defined for non-reverb
                 single-channel data, it is disabled by default.
+            compute_permutation: whether to realign sources and estimates
+                according to SDR values.
 
         speech_contribution and noise_contribution can only be calculated for
         linear system and are used for the calculation of invasive_sxr.
@@ -304,6 +307,7 @@ class OutputMetrics:
         self.speech_contribution = speech_contribution
         self.noise_contribution = noise_contribution
         self.sample_rate = sample_rate
+        self.compute_permutation = compute_permutation
 
         self._has_contribution_signals = (
             speech_contribution is not None
@@ -405,6 +409,9 @@ class OutputMetrics:
     def speech_prediction_selection(self):
         assert self.speech_prediction.ndim == 2, self.speech_prediction.shape
         assert self.speech_prediction.shape[0] < 10, self.speech_prediction.shape  # NOQA
+        if not self.compute_permutation:
+            return self.speech_prediction
+
         assert (
             self.speech_prediction.shape[0]
             in (len(self.mir_eval_selection), len(self.mir_eval_selection) + 1)
@@ -496,8 +503,9 @@ class OutputMetrics:
             'mir_eval_sdr',
             'mir_eval_sir',
             'mir_eval_sar',
-            'mir_eval_selection',
         ]
+        if self.compute_permutation:
+            metric_names.append('mir_eval_selection')
         if self.enable_si_sdr:
             metric_names.append('si_sdr')
         if self._has_contribution_signals:
@@ -509,6 +517,8 @@ class OutputMetrics:
 
     def _disabled_metric_names(self):
         disabled = []
+        if not self.compute_permutation:
+            disabled.append('mir_eval_selection')
         if not self.enable_si_sdr:
             disabled.append('si_sdr')
         if not self._has_contribution_signals:
