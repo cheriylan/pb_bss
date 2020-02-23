@@ -4,15 +4,22 @@ try:
     from Cython.Build import cythonize
 
     import scipy  # nessesary for cython files
+    ext_modules = cythonize([
+        'pb_bss/extraction/cythonized/get_gev_vector.pyx',
+        'pb_bss/extraction/cythonized/c_eig.pyx',
+    ])
+    include_dirs = [np.get_include()]
 except ModuleNotFoundError as e:
-    raise ModuleNotFoundError("""
+    print("""
 This package has some Cython files that will be compilled,\n
 when you install this package. The Cython files use numpy and scipy.\n
-Please install them before you install this packges:\n
+If you need the cython files, install dependecies before:\n
     'conda install numpy Cython scipy'
 or
     'pip install numpy Cython scipy'
-""") from e
+""")
+    ext_modules = []
+    include_dirs = []
 
 
 setuptools.setup(
@@ -57,9 +64,6 @@ setuptools.setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    ext_modules=cythonize([
-        'pb_bss/extraction/cythonized/get_gev_vector.pyx',
-        'pb_bss/extraction/cythonized/c_eig.pyx',
-    ]),
-    include_dirs=[np.get_include()],
+    ext_modules=ext_modules,
+    include_dirs=include_dirs,
 )
