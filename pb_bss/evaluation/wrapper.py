@@ -92,6 +92,10 @@ class InputMetrics:
         self.check_inputs()
 
     def check_inputs(self):
+        if self.observation.ndim == 1:
+            self.observation = self.observation[None]
+        if self.speech_source.ndim == 1:
+            self.speech_source = self.speech_source[None]
         assert self.observation.ndim == 2, self.observation.shape
         assert self.speech_source.ndim == 2, self.speech_source.shape
 
@@ -339,6 +343,10 @@ class OutputMetrics:
         self.check_inputs()
 
     def check_inputs(self):
+        if self.speech_source.ndim == 1:
+            self.speech_source = self.speech_source[None]
+        if self.speech_prediction.ndim == 1:
+            self.speech_prediction = self.speech_prediction[None]
         assert self.speech_prediction.ndim == 2, self.speech_prediction.shape
         assert self.speech_source.ndim == 2, self.speech_source.shape
 
