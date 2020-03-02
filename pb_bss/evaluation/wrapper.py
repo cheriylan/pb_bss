@@ -79,6 +79,7 @@ class InputMetrics:
         self.speech_image = speech_image
         self.noise_image = noise_image
         self.sample_rate = sample_rate
+        self.enable_1d_inputs()
 
         self._has_image_signals \
             = (speech_image is not None and noise_image is not None)
@@ -91,11 +92,13 @@ class InputMetrics:
 
         self.check_inputs()
 
-    def check_inputs(self):
+    def enable_1d_inputs(self):
         if self.observation.ndim == 1:
             self.observation = self.observation[None]
         if self.speech_source.ndim == 1:
             self.speech_source = self.speech_source[None]
+
+    def check_inputs(self):
         assert self.observation.ndim == 2, self.observation.shape
         assert self.speech_source.ndim == 2, self.speech_source.shape
 
@@ -327,6 +330,7 @@ class OutputMetrics:
         self.noise_contribution = noise_contribution
         self.sample_rate = sample_rate
         self.compute_permutation = compute_permutation
+        self.enable_1d_inputs()
 
         self._has_contribution_signals = (
             speech_contribution is not None
@@ -342,11 +346,13 @@ class OutputMetrics:
 
         self.check_inputs()
 
-    def check_inputs(self):
+    def enable_1d_inputs(self):
         if self.speech_source.ndim == 1:
             self.speech_source = self.speech_source[None]
         if self.speech_prediction.ndim == 1:
             self.speech_prediction = self.speech_prediction[None]
+
+    def check_inputs(self):
         assert self.speech_prediction.ndim == 2, self.speech_prediction.shape
         assert self.speech_source.ndim == 2, self.speech_source.shape
 
