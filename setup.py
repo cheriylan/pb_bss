@@ -34,20 +34,20 @@ setuptools.setup(
     packages=setuptools.find_packages(),
 
     install_requires=[
-        'dataclasses',
-        'matplotlib',
-        'scikit-learn',
+        # Strict InputMetrics / OutputMetrics dependencies
         'cached_property',
         'einops',
-        'sympy',  # Bingham mixture model symbolic solution dependency
-        # Metric dependencies
-        'mir_eval',
         'pystoi',
+        'mir_eval',
         'pesq'
     ],
 
     extras_require={
         'all': [
+            'dataclasses',
+            'matplotlib',
+            'scikit-learn',
+            'sympy',  # Bingham mixture model symbolic solution dependency
             'soundFile',
             'nara_wpe',
             'lazy_dataset',
