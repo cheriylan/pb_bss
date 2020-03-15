@@ -5,12 +5,21 @@
 [![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/fgnt/fgnt/1)](https://dev.azure.com/fgnt/fgnt/_build/latest?definitionId=1&branchName=master)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fgnt/pb_bss/master/LICENSE)
 
+__Fork note__ : The original repo has been modified to allow a partial 
+release of the evaluation utilities on PyPI under the name 
+`pb_bss_eval`. All the credits goes to the original authors 
+(see [here](https://github.com/fgnt/pb_bss)).  
+As can be seen in the [Manifest.in](./MANIFEST.in), only the 
+evaluation sub-package can be installed and is released on PyPI.
 
-This repository covers EM algorithms to separate speech sources in multi-channel recordings.
+This repository covers EM algorithms to separate speech sources in 
+multi-channel recordings.  
 
-In particular, the repository contains methods to integrate Deep Clustering (a neural network-based source separation algorithm) with a probabilistic spatial mixture model as proposed in the Interspeech paper "Tight integration of spatial and spectral features for BSS with Deep Clustering embeddings" presented at Interspeech 2017 in Stockholm.
+In particular, the repository contains methods to integrate 
+Deep Clustering (a neural network-based source separation algorithm) 
+with a probabilistic spatial mixture model as proposed in the Interspeech paper "Tight integration of spatial and spectral features for BSS with Deep Clustering embeddings" presented at Interspeech 2017 in Stockholm.
 
-```
+```BibTex
 @InProceedings{Drude2017DeepClusteringIntegration,
   Title                    = {Tight integration of spatial and spectral features for {BSS} with Deep Clustering embeddings},
   Author                   = {Drude, Lukas and and Haeb-Umbach, Reinhold},
