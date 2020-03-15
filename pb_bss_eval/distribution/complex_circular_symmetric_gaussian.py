@@ -15,8 +15,8 @@ References:
 from dataclasses import dataclass
 
 import numpy as np
-from pb_bss.distribution.utils import _ProbabilisticModel
-from pb_bss.utils import is_broadcast_compatible
+from pb_bss_eval.distribution.utils import _ProbabilisticModel
+from pb_bss_eval.utils import is_broadcast_compatible
 
 
 @dataclass

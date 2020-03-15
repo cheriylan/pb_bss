@@ -1,7 +1,7 @@
 import numpy as np
 import unittest
 
-import pb_bss
+import pb_bss_eval
 
 
 class TestMirEval(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestMirEval(unittest.TestCase):
             + self.noise_contribution
         )
 
-        self.input_metrics = pb_bss.evaluation.InputMetrics(
+        self.input_metrics = pb_bss_eval.evaluation.InputMetrics(
             observation=self.y,
             speech_source=self.s,
             speech_image=self.x,
@@ -44,7 +44,7 @@ class TestMirEval(unittest.TestCase):
             enable_si_sdr=True
         )
 
-        self.output_metrics = pb_bss.evaluation.OutputMetrics(
+        self.output_metrics = pb_bss_eval.evaluation.OutputMetrics(
             speech_prediction=self.z,
             speech_source=self.s,
             speech_contribution=self.speech_contribution,

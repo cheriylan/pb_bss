@@ -204,7 +204,7 @@ class DHTVPermutationAlignment(_PermutationAlignment):
     @property
     def alignment_plan(self):
         """Provides the alignment plan for a given setup. Nice to plot, too.
-        >>> from pb_bss.permutation_alignment import DHTVPermutationAlignment
+        >>> from pb_bss_eval.permutation_alignment import DHTVPermutationAlignment
         >>> import matplotlib.pyplot as plt
         >>> alignment_plan = DHTVPermutationAlignment.from_stft_size(512).alignment_plan
 

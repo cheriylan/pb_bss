@@ -1,8 +1,8 @@
 import numpy as np
 from numpy.testing import assert_allclose, assert_equal
 import unittest
-from pb_bss.distribution import VonMisesFisher
-from pb_bss.distribution import VonMisesFisherTrainer
+from pb_bss_eval.distribution import VonMisesFisher
+from pb_bss_eval.distribution import VonMisesFisherTrainer
 
 
 class TestGaussian(unittest.TestCase):

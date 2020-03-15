@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.signal
 
-from pb_bss.evaluation.wrapper import InputMetrics, OutputMetrics
+from pb_bss_eval.evaluation.wrapper import InputMetrics, OutputMetrics
 
 
 def scenario():

@@ -7,10 +7,10 @@ from cached_property import cached_property
 
 import numpy as np
 
-from pb_bss.distribution.utils import _ProbabilisticModel
-from pb_bss.utils import is_broadcast_compatible
+from pb_bss_eval.distribution.utils import _ProbabilisticModel
+from pb_bss_eval.utils import is_broadcast_compatible
 
-from pb_bss.utils import get_pca
+from pb_bss_eval.utils import get_pca
 
 
 def normalize_observation(observation):

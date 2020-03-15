@@ -17,18 +17,18 @@ from operator import xor
 
 import numpy as np
 from dataclasses import dataclass
-from pb_bss.distribution import (
+from pb_bss_eval.distribution import (
     ComplexAngularCentralGaussian,
     ComplexAngularCentralGaussianTrainer,
 )
-from pb_bss.distribution import VonMisesFisher
-from pb_bss.distribution import VonMisesFisherTrainer
-from pb_bss.distribution.mixture_model_utils import (
+from pb_bss_eval.distribution import VonMisesFisher
+from pb_bss_eval.distribution import VonMisesFisherTrainer
+from pb_bss_eval.distribution.mixture_model_utils import (
     log_pdf_to_affiliation,
     log_pdf_to_affiliation_for_integration_models_with_inline_pa,
 )
-from pb_bss.distribution.utils import _ProbabilisticModel
-from pb_bss.utils import unsqueeze
+from pb_bss_eval.distribution.utils import _ProbabilisticModel
+from pb_bss_eval.utils import unsqueeze
 
 
 @dataclass

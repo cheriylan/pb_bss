@@ -1,8 +1,8 @@
 import numpy as np
 from numpy.testing import assert_equal
 import unittest
-from pb_bss.distribution import CWMMTrainer
-from pb_bss.distribution import ComplexAngularCentralGaussian
+from pb_bss_eval.distribution import CWMMTrainer
+from pb_bss_eval.distribution import ComplexAngularCentralGaussian
 
 
 class TestCWMM(unittest.TestCase):

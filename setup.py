@@ -23,8 +23,8 @@ or
 
 
 setuptools.setup(
-    name="pb_bss",
-
+    name="pb_bss_eval",
+    version='0.0.1',
     author="Lukas Drude",
     author_email="mail@lukas-drude.de",
 

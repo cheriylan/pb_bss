@@ -1,6 +1,6 @@
 import numpy as np
 from functools import partial
-import pb_bss
+import pb_bss_eval
 
 
 class GriffinLim:
@@ -72,14 +72,14 @@ class GriffinLim:
         Returns:
 
         """
-        metrics = pb_bss.evaluation.OutputMetrics(
+        metrics = pb_bss_eval.evaluation.OutputMetrics(
             speech_prediction=self.x_hat,
             speech_source=speech_source,
             enable_si_sdr=True,
         )
 
         # ToDo: move function get_variance_for_zero_mean_signal to this repo
-        from pb_bss.evaluation.sxr_module import get_variance_for_zero_mean_signal
+        from pb_bss_eval.evaluation.sxr_module import get_variance_for_zero_mean_signal
 
         return dict(
             mir_eval_sdr=np.mean(metrics.mir_eval['sdr']),

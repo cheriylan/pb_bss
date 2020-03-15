@@ -1,5 +1,5 @@
 import unittest
-from pb_bss.utils import is_broadcast_compatible
+from pb_bss_eval.utils import is_broadcast_compatible
 
 
 class TestBroadcastCompatibility(unittest.TestCase):

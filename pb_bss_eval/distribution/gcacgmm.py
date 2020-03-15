@@ -20,13 +20,13 @@ from typing import Any
 
 import numpy as np
 from dataclasses import dataclass
-from pb_bss.utils import unsqueeze
+from pb_bss_eval.utils import unsqueeze
 
-from pb_bss.distribution import (
+from pb_bss_eval.distribution import (
     ComplexAngularCentralGaussian,
     ComplexAngularCentralGaussianTrainer,
 )
-from pb_bss.distribution import GaussianTrainer
+from pb_bss_eval.distribution import GaussianTrainer
 from .mixture_model_utils import (
     log_pdf_to_affiliation,
     log_pdf_to_affiliation_for_integration_models_with_inline_pa,

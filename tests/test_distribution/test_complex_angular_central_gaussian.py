@@ -1,6 +1,6 @@
 import numpy as np
 import unittest
-from pb_bss.distribution import (
+from pb_bss_eval.distribution import (
     ComplexAngularCentralGaussian,
     ComplexAngularCentralGaussianTrainer,
 )

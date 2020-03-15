@@ -3,11 +3,11 @@ import numpy as np
 from einops import rearrange
 from nara_wpe.utils import stft as _stft, istft as _istft
 
-from pb_bss.testing.dummy_data import low_reverberation_data
-from pb_bss.testing.dummy_data import reverberation_data
-from pb_bss.evaluation.wrapper import InputMetrics, OutputMetrics
-from pb_bss.permutation_alignment import DHTVPermutationAlignment
-from pb_bss.distribution import (
+from pb_bss_eval.testing.dummy_data import low_reverberation_data
+from pb_bss_eval.testing.dummy_data import reverberation_data
+from pb_bss_eval.evaluation.wrapper import InputMetrics, OutputMetrics
+from pb_bss_eval.permutation_alignment import DHTVPermutationAlignment
+from pb_bss_eval.distribution import (
     CACGMMTrainer,
     CBMMTrainer,
     CWMMTrainer,

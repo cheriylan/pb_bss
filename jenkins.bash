@@ -30,7 +30,7 @@ pytest --junitxml='test_results.xml' --cov=pb_bss  \
 # in coverage
 
 # Export coverage
-python -m coverage xml --include="pb_bss*"
+python -m coverage xml --include="pb_bss_eval*"
 
 # Pylint tests
 pylint --rcfile="paderbox/pylint.cfg" -f parseable pb_bss > pylint.txt || true

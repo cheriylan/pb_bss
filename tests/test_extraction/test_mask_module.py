@@ -4,11 +4,11 @@ import numpy as np
 from parameterized import parameterized, param
 
 import numpy.testing as tc
-from pb_bss.extraction import mask_module
-from pb_bss.extraction.mask_module import wiener_like_mask, lorenz_mask, \
+from pb_bss_eval.extraction import mask_module
+from pb_bss_eval.extraction.mask_module import wiener_like_mask, lorenz_mask, \
     ideal_binary_mask
-from pb_bss.testing.random_utils import randn
-from pb_bss.testing.module_asserts import (
+from pb_bss_eval.testing.random_utils import randn
+from pb_bss_eval.testing.module_asserts import (
     assert_array_less_equal,
     assert_array_greater_equal,
 )

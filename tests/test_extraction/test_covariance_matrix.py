@@ -3,12 +3,12 @@ import unittest
 import numpy as np
 
 import numpy.testing as tc
-from pb_bss.extraction import get_power_spectral_density_matrix
-from pb_bss.testing.module_asserts import (
+from pb_bss_eval.extraction import get_power_spectral_density_matrix
+from pb_bss_eval.testing.module_asserts import (
     assert_hermitian,
     assert_positive_semidefinite,
 )
-from pb_bss.extraction.beamformer import get_power_spectral_density_matrix
+from pb_bss_eval.extraction.beamformer import get_power_spectral_density_matrix
 
 
 def rand(*shape, data_type):

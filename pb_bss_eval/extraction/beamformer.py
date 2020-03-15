@@ -17,7 +17,7 @@ import numpy as np
 from numpy.linalg import solve
 from scipy.linalg import eig
 from scipy.linalg import eigh
-from pb_bss.math.solve import stable_solve
+from pb_bss_eval.math.solve import stable_solve
 
 
 __all__ = [

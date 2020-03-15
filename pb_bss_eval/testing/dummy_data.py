@@ -8,7 +8,7 @@ from lazy_dataset.database import DictDatabase
 
 
 def _get_data():
-    from pb_bss import project_root
+    from pb_bss_eval import project_root
     from pathlib import Path
     project_root: Path
 

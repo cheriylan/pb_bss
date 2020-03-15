@@ -1,6 +1,6 @@
 import numpy as np
 
-from pb_bss.utils import labels_to_one_hot
+from pb_bss_eval.utils import labels_to_one_hot
 from .beamformer import *
 
 __all__ = [

@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 import paderbox as pb
 from paderbox.testing.testfile_fetcher import get_file_path
-from pb_bss.evaluation import pesq
+from pb_bss_eval.evaluation import pesq
 
 
 class TestProposedPESQ(unittest.TestCase):

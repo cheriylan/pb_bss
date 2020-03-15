@@ -1,7 +1,7 @@
 import itertools
 import numpy as np
-from pb_bss.permutation_alignment import _PermutationAlignment
-from pb_bss.distribution.utils import _unit_norm
+from pb_bss_eval.permutation_alignment import _PermutationAlignment
+from pb_bss_eval.distribution.utils import _unit_norm
 
 
 def log_pdf_to_affiliation(

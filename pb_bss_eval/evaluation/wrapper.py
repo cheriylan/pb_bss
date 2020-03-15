@@ -3,7 +3,7 @@ import cached_property
 import numpy as np
 
 from einops import rearrange
-import pb_bss
+import pb_bss_eval
 
 
 # TODO: Should mir_eval_sxr_selection stay in InputMetrics?
@@ -104,7 +104,7 @@ class InputMetrics:
 
     @cached_property.cached_property
     def mir_eval(self):
-        return pb_bss.evaluation.mir_eval_sources(
+        return pb_bss_eval.evaluation.mir_eval_sources(
             reference=rearrange(
                 [self.speech_source] * self.channels,
                 'channels sources samples -> sources channels samples'
@@ -131,7 +131,7 @@ class InputMetrics:
 
     @cached_property.cached_property
     def pesq(self):
-        return pb_bss.evaluation.pesq(
+        return pb_bss_eval.evaluation.pesq(
                 rearrange(
                     [self.speech_source] * self.channels,
                     'channels sources samples -> sources channels samples'
@@ -142,7 +142,7 @@ class InputMetrics:
 
     @cached_property.cached_property
     def invasive_sxr(self):
-        from pb_bss.evaluation.sxr_module import input_sxr
+        from pb_bss_eval.evaluation.sxr_module import input_sxr
         invasive_sxr = input_sxr(
             rearrange(
                 self.speech_image,
@@ -169,7 +169,7 @@ class InputMetrics:
 
     @cached_property.cached_property
     def stoi(self):
-        scores = pb_bss.evaluation.stoi(
+        scores = pb_bss_eval.evaluation.stoi(
             reference=rearrange(
                 [self.speech_source] * self.channels,
                 'channels sources samples -> sources channels samples'
@@ -185,7 +185,7 @@ class InputMetrics:
     @cached_property.cached_property
     def si_sdr(self):
         if self.enable_si_sdr:
-            return pb_bss.evaluation.si_sdr(
+            return pb_bss_eval.evaluation.si_sdr(
                 # Shape: (sources, 1, samples)
                 reference=self.speech_source[:, None, :],
                 # Shape: (1, channels, samples)
@@ -449,7 +449,7 @@ class OutputMetrics:
 
     @cached_property.cached_property
     def mir_eval(self):
-        return pb_bss.evaluation.mir_eval_sources(
+        return pb_bss_eval.evaluation.mir_eval_sources(
             reference=self.speech_source,
             estimation=self.speech_prediction,
             return_dict=True,
@@ -469,7 +469,7 @@ class OutputMetrics:
 
     @cached_property.cached_property
     def pesq(self):
-        return pb_bss.evaluation.pesq(
+        return pb_bss_eval.evaluation.pesq(
             reference=self.speech_source,
             estimation=self.speech_prediction_selection,
             sample_rate=self.sample_rate,
@@ -477,7 +477,7 @@ class OutputMetrics:
 
     @cached_property.cached_property
     def invasive_sxr(self):
-        from pb_bss.evaluation.sxr_module import output_sxr
+        from pb_bss_eval.evaluation.sxr_module import output_sxr
         invasive_sxr = output_sxr(
             rearrange(
                 self.speech_contribution,
@@ -505,7 +505,7 @@ class OutputMetrics:
 
     @cached_property.cached_property
     def stoi(self):
-        return pb_bss.evaluation.stoi(
+        return pb_bss_eval.evaluation.stoi(
             reference=self.speech_source,
             estimation=self.speech_prediction_selection,
             sample_rate=self.sample_rate,
@@ -514,7 +514,7 @@ class OutputMetrics:
     @cached_property.cached_property
     def si_sdr(self):
         if self.enable_si_sdr:
-            return pb_bss.evaluation.si_sdr(
+            return pb_bss_eval.evaluation.si_sdr(
                 reference=self.speech_source,
                 estimation=self.speech_prediction_selection,
             )

@@ -1,6 +1,6 @@
 import numpy as np
 import unittest
-from pb_bss.distribution import GCACGMMTrainer
+from pb_bss_eval.distribution import GCACGMMTrainer
 
 
 class TestGCACGMM(unittest.TestCase):

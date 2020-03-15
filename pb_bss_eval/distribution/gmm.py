@@ -2,11 +2,11 @@ from operator import xor
 
 import numpy as np
 from dataclasses import dataclass
-from pb_bss.distribution.mixture_model_utils import (
+from pb_bss_eval.distribution.mixture_model_utils import (
     estimate_mixture_weight,
     log_pdf_to_affiliation,
 )
-from pb_bss.utils import labels_to_one_hot
+from pb_bss_eval.utils import labels_to_one_hot
 from sklearn.cluster import KMeans
 
 from . import Gaussian, GaussianTrainer

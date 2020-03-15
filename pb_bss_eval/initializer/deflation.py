@@ -1,6 +1,6 @@
 import numpy as np
-from pb_bss.permutation_alignment import _parameterized_vector_norm
-import pb_bss.extraction
+from pb_bss_eval.permutation_alignment import _parameterized_vector_norm
+import pb_bss_eval.extraction
 
 
 def deflationSeed(
@@ -58,10 +58,10 @@ def deflationSeed(
             range(-neighbors, neighbors + 1)
         ], axis=-1)
 
-        psd = pb_bss.extraction.get_power_spectral_density_matrix(
+        psd = pb_bss_eval.extraction.get_power_spectral_density_matrix(
             Y_local, mask=saliencies_local)
 
-        mode = pb_bss.extraction.get_pca_vector(psd)
+        mode = pb_bss_eval.extraction.get_pca_vector(psd)
 
         similarity = np.abs(np.einsum(
             'FTD,FD->FT',

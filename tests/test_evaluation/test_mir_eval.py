@@ -1,7 +1,7 @@
 import numpy as np
 import unittest
 
-from pb_bss.evaluation.module_mir_eval import mir_eval_sources
+from pb_bss_eval.evaluation.module_mir_eval import mir_eval_sources
 
 
 class TestMirEval(unittest.TestCase):

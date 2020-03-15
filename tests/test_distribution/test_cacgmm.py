@@ -1,11 +1,11 @@
 import numpy as np
 from numpy.testing import assert_allclose
 import unittest
-from pb_bss.distribution import CACGMMTrainer
-from pb_bss.distribution import ComplexAngularCentralGaussian
-from pb_bss.distribution import sample_cacgmm
+from pb_bss_eval.distribution import CACGMMTrainer
+from pb_bss_eval.distribution import ComplexAngularCentralGaussian
+from pb_bss_eval.distribution import sample_cacgmm
 import itertools
-from pb_bss.utils import labels_to_one_hot
+from pb_bss_eval.utils import labels_to_one_hot
 
 
 def solve_permutation(estimated_covariance, covariance):

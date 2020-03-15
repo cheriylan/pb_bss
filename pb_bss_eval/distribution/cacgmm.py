@@ -3,18 +3,18 @@ from operator import xor
 import numpy as np
 import scipy.special
 from dataclasses import dataclass, field
-from pb_bss.distribution.complex_angular_central_gaussian import (
+from pb_bss_eval.distribution.complex_angular_central_gaussian import (
     ComplexAngularCentralGaussian,
     ComplexAngularCentralGaussianTrainer,
     normalize_observation,
 )
-from pb_bss.distribution.mixture_model_utils import (
+from pb_bss_eval.distribution.mixture_model_utils import (
     apply_inline_permutation_alignment,
     estimate_mixture_weight,
     log_pdf_to_affiliation,
 )
-from pb_bss.distribution.utils import _ProbabilisticModel
-from pb_bss.permutation_alignment import _PermutationAlignment
+from pb_bss_eval.distribution.utils import _ProbabilisticModel
+from pb_bss_eval.permutation_alignment import _PermutationAlignment
 
 __all__ = [
     'CACGMM',

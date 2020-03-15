@@ -4,15 +4,15 @@ import pytest
 import numpy as np
 import functools
 import numpy.testing as tc
-from pb_bss.extraction.beamformer import get_gev_vector, \
+from pb_bss_eval.extraction.beamformer import get_gev_vector, \
     _get_gev_vector, _cythonized_eig, eig
-from pb_bss.extraction.beamformer import get_lcmv_vector
-from pb_bss.extraction.beamformer import get_mvdr_vector
-from pb_bss.extraction.beamformer import get_pca_vector
-from pb_bss.extraction.beamformer import get_mvdr_vector_souden
-from pb_bss.extraction.beamformer import get_wmwf_vector
-from pb_bss.extraction.beamformer import blind_analytic_normalization
-from pb_bss.testing.random_utils import uniform, hermitian, pos_def_hermitian
+from pb_bss_eval.extraction.beamformer import get_lcmv_vector
+from pb_bss_eval.extraction.beamformer import get_mvdr_vector
+from pb_bss_eval.extraction.beamformer import get_pca_vector
+from pb_bss_eval.extraction.beamformer import get_mvdr_vector_souden
+from pb_bss_eval.extraction.beamformer import get_wmwf_vector
+from pb_bss_eval.extraction.beamformer import blind_analytic_normalization
+from pb_bss_eval.testing.random_utils import uniform, hermitian, pos_def_hermitian
 
 
 def cos_similarity(A, B):
@@ -120,7 +120,7 @@ class TestBeamformerWrapperWithSpeakers(TestBeamformerWrapper):
 
 class TestCythonizedGetGEV(unittest.TestCase):
     def test_import(self):
-        from pb_bss.extraction.cythonized.get_gev_vector import \
+        from pb_bss_eval.extraction.cythonized.get_gev_vector import \
             _c_get_gev_vector
 
     @pytest.mark.flaky(reruns=5)

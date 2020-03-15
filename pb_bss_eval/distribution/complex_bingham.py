@@ -5,9 +5,9 @@ from cached_property import cached_property
 import numpy as np
 from scipy.optimize import least_squares
 
-from pb_bss.distribution.utils import _ProbabilisticModel
-from pb_bss.utils import is_broadcast_compatible
-from pb_bss.distribution.complex_bingham_utils import grad_log_norm_symbolic, grad_log_norm_symbolic_diff
+from pb_bss_eval.distribution.utils import _ProbabilisticModel
+from pb_bss_eval.utils import is_broadcast_compatible
+from pb_bss_eval.distribution.complex_bingham_utils import grad_log_norm_symbolic, grad_log_norm_symbolic_diff
 
 def normalize_observation(observation):
     """
@@ -319,7 +319,7 @@ class ComplexBinghamTrainer:
         >>> ComplexBinghamTrainer.find_eigenvalues_v3([0.9, 0.06, 0.04])
         array([  0.        , -16.66662429, -24.99999135])
 
-        >>> from pb_bss.distribution.complex_watson import ComplexWatsonTrainer
+        >>> from pb_bss_eval.distribution.complex_watson import ComplexWatsonTrainer
         >>> t = ComplexWatsonTrainer(dimension=3)
         >>> t.fill_hypergeometric_ratio_inverse([0.9, 0.06, 0.04])
         array([ 19.99999117, -15.51872617, -23.90871118])
