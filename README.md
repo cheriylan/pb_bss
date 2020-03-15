@@ -11,6 +11,11 @@ release of the evaluation utilities on PyPI under the name
 (see [here](https://github.com/fgnt/pb_bss)).  
 As can be seen in the [Manifest.in](./MANIFEST.in), only the 
 evaluation sub-package can be installed and is released on PyPI.
+To install it, just run :
+```
+pip install numpy Cython  # required for pesq install
+pip install pb_bss_eval
+```
 
 This repository covers EM algorithms to separate speech sources in 
 multi-channel recordings.  
