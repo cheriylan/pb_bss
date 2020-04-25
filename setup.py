@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="pb_bss_eval",
-    version='0.0.1',
+    version='0.0.2',
     author="Lukas Drude",
     author_email="mail@lukas-drude.de",
     description="EM algorithms for integrated spatial and spectral models.",
