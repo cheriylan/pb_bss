@@ -35,7 +35,10 @@ def si_sdr(reference, estimation):
 
     """
     estimation, reference = np.broadcast_arrays(estimation, reference)
-
+    # Zero mean
+    estimation = estimation - np.mean(estimation, -1, keepdims=True)
+    reference = reference - np.mean(reference, -1, keepdims=True)
+    # Reference energy has a better estimate
     reference_energy = np.sum(reference ** 2, axis=-1, keepdims=True) + EPS
 
     # This is $\alpha$ after Equation (3) in [1].
